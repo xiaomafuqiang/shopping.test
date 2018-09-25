@@ -1,15 +1,22 @@
 package net.htmlonline.utils;
 
-import javax.mail.*;
+import java.util.Properties;
+
+import javax.mail.Authenticator;
+import javax.mail.Message;
+import javax.mail.MessagingException;
+import javax.mail.PasswordAuthentication;
+import javax.mail.Session;
+import javax.mail.Transport;
+import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 import javax.mail.internet.MimeMessage.RecipientType;
-import java.util.Properties;
 
 public class MailUtils {
 
 	public static void sendMail(String email, String emailMsg)
-			throws MessagingException {
+			throws AddressException, MessagingException {
 		// 1.创建一个程序与邮件服务器会话对象 Session
 
 		Properties props = new Properties();
@@ -51,7 +58,7 @@ public class MailUtils {
 		// 3.创建 Transport用于将邮件发送
 		Transport.send(message);
 	}
-	public static void main(String[] args) throws MessagingException {
+	public static void main(String[] args) throws AddressException, MessagingException {
 		MailUtils.sendMail("aaa@store.com", "abcdefg");
 	}
 }
