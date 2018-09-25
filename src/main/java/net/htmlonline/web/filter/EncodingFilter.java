@@ -20,7 +20,7 @@ public class EncodingFilter implements Filter {
         //1.强转
 		HttpServletRequest request=(HttpServletRequest) req;
 		HttpServletResponse response=(HttpServletResponse) resp;
-		resp.setContentType("application/json");
+		resp.setContentType("application/json;charset=utf-8");
         String requestURI = ((HttpServletRequest) req).getRequestURI();
         System.out.println("requestURI :: -> " + requestURI);
         //System.out.println("@@@@@@@@@@@@@@@@@@");

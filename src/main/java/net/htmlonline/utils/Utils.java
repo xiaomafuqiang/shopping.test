@@ -18,7 +18,6 @@ public class Utils {
 
             String s;
             while ((s = reader.readLine()) != null) {
-                System.out.println(s);
                 jsonRequest.append(s);
             }
             System.out.println("request data::: " + jsonRequest);
@@ -33,15 +32,14 @@ public class Utils {
 
 
 
-    public static String result(String result, Integer status) {
+    public static String result(Object result, Integer status) {
         if (status == null) {
             status = 200;
         }
-        JSONObject jsonObject = JSON.parseObject(result);
         HashMap<String, Object> map = new HashMap<>();
         map.put("ok", true);
         map.put("status", status);
-        map.put("data", jsonObject);
+        map.put("data", result);
 
         return JSON.toJSONString(map);
     }
